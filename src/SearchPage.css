@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(255, 235, 203);
+    text-align: center;
+   
+}
+.search-box {
+    margin: auto;
+    border: 5rem;
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    height: 500px;
+    border-radius: 20px;
+    box-shadow: 0px 18px 53px 0px rgba(0,0,0,0.3);
+}
+.search-title {
+    width: 100%;
+    padding: 30px;
+}
+.search-img {
+    width: 50%;
+    padding: 30px;
+}
+.input-group {
+    width: 50%;
+    margin: 30px auto 10px auto;
+    text-align: center;
+}
+
+
+
+ 
