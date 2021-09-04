@@ -16,7 +16,7 @@ function App() {
  
 
   //TÄMÄ ON KESKEN
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(inputText) + "&appid=" + "c3fb8a5ed9dfef15a7c6b70a013faf95" + "&units=metric";
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(inputText) + "&appid=" + process.env.OPENWEATHER_APIKEY + "&units=metric";
   
 
   const handleChange = (event) => {
