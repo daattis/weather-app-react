@@ -4,9 +4,7 @@ import './SearchPage.css'
 const SearchPage = ({ onSearch, handleChange, inputText }) => {
 
     return (
-    <div className="search-box">
-    <h1 className="header">My weather app</h1>
-     
+    <div>
       <img className="search-img" src="./icons/perfect-day.svg" alt="weather app intro"></img>
       <h2 className="search-title">Find Weather for your city</h2>
 
@@ -18,8 +16,8 @@ const SearchPage = ({ onSearch, handleChange, inputText }) => {
         </div>
       </div>
       </form>
-
-    </div>
+</div>
+    
 )
 }
 

@@ -10,34 +10,39 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
+
+  const [city, updateCity] = useState();
+  const [weather, updateWeather] = useState();
  
-  const options = {
-    method: 'POST',
-    auth: process.env.OPENWEATHER_APIKEY
-  }
-  //const url = https://api.openweathermap.org/data/2.5/weather?q={newCity}&appid={env.APIKEY}&units=metric;
+
+  //TÄMÄ ON KESKEN
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(inputText) + "&appid=" + "c3fb8a5ed9dfef15a7c6b70a013faf95" + "&units=metric";
+  
 
   const handleChange = (event) => {
     let newCity = event.target.value;
     setInputText(newCity);
   }
-  
+ 
+     //fetch data from api
   const onSearch = (event) => {
-    //function which fetches data from api
+ 
     event.preventDefault();
     console.log(inputText)
+    console.log("Avain on: " + process.env.OPENWEATHER_APIKEY);
 
-    fetch("https://api.openweathermap.org/data/2.5/weather?q={inputText}&appid={options.auth}&units=metric")
+    fetch(url)
     .then(res => res.json())
     .then(
       (result) => {
         setIsLoaded(true);
         setItems(result);
-        console.log(items);
+        console.log(result);
       }, 
       (error) => {
         setIsLoaded(true);
         setError(error);
+        console.log("Error in fetch")
       })
 
       // make an if statement if there is an error, display it. Or if data isn't finished loading, display "loading..." and else return the data
@@ -46,19 +51,18 @@ function App() {
 
 //tarkistetaan onko inputtext tyhjä, ja alle ehto mikä sivu näytetään
   return (
-    <div>
-      <SearchPage onSearch={onSearch} handleChange={handleChange} inputText={inputText}/>
-     {/* <WeatherPage
-      isLoading={isLoading}
-      errorMessage={errorMessage}
-      data={data}
-      lang="en"
-      locationLabel="Munich"
-      unitsLabels={{ temperature: 'C', windSpeed: 'Km/h' }}
-      showForecast
-    />*/ }
-    </div>
+    <div className="search-box">
+    <h1 className="header">My weather app</h1>
+     
+    {city && weather ? (
+        <WeatherPage weather={weather} city={city} />
+      ) : (
+        <SearchPage onSearch={onSearch} handleChange={handleChange} inputText={inputText}/>
+      )} 
+        
+     </div>
   );
-}
+  }
+
 
 export default App;
