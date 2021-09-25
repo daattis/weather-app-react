@@ -19,7 +19,6 @@ function App() {
     updateCity(newCity);
   };
   const onClick = () => {
-    console.log("Clicked");
     updateShowWeather(false);
   };
 

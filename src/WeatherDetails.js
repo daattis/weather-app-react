@@ -16,30 +16,28 @@ const WeatherDetails = ({ weather }) => {
   let sunrise = hours + ":" + minutes.substr(-2);
 
   return (
-    <div className="flex-item">
-      <div className="grid-container">
-        <div className="grid-item">
-          <WbSunnyIcon className="details-icon" />
-          <p>Sunrise</p>
-          <p>{sunrise}</p>
-        </div>
-        <div className="grid-item">
-          <OpacityIcon className="details-icon" />
-          <p>Humidity</p>
-          <p>{humidity}</p>
-        </div>
+    <div className="weatherinfo-container flex-item">
+      <div className="flex-item">
+        <WbSunnyIcon className="details-icon" />
+        <p className="weather-details-text">Sunrise</p>
+        <p className="weather-details-text">{sunrise}</p>
+      </div>
+      <div className="flex-item">
+        <OpacityIcon className="details-icon" />
+        <p className="weather-details-text">Humidity</p>
+        <p className="weather-details-text">{humidity} %</p>
+      </div>
 
-        <div className="grid-item">
-          <ClearAllIcon className="details-icon" />
-          <p>Wind</p>
-          <p>{wind}</p>
-        </div>
+      <div className="flex-item">
+        <ClearAllIcon className="details-icon" />
+        <p className="weather-details-text">Wind</p>
+        <p className="weather-details-text">{wind}</p>
+      </div>
 
-        <div className="grid-item">
-          <SpeedIcon className="details-icon" />
-          <p>Pressure</p>
-          <p>{pressure}</p>
-        </div>
+      <div className="flex-item">
+        <SpeedIcon className="details-icon" />
+        <p className="weather-details-text">Pressure</p>
+        <p className="weather-details-text">{pressure} Pa</p>
       </div>
     </div>
   );

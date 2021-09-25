@@ -3,10 +3,8 @@ import WeatherDetails from "./WeatherDetails";
 import "./WeatherPage.css";
 import BackToSearch from "./BackToSearch";
 import RoomIcon from "@material-ui/icons/Room";
-import { Link, Router } from "react-router-dom";
 
 const WeatherPage = ({ weather, city, onClick }) => {
-  console.log(weather.weather[0].main);
   let weatherIcon = "perfect-day";
   const url = "./icons/" + encodeURIComponent(weatherIcon) + ".svg";
   const weatherIconId = weather.weather[0].icon;
