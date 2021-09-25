@@ -1,7 +1,7 @@
 import React from "react";
 import "./SearchPage.css";
 
-const SearchPage = ({ onSearch, handleChange, city }) => {
+const SearchPage = ({ onSearch, handleChange }) => {
   return (
     <div className="container">
       <img className="search-img flex-item" src="./icons/perfect-day.svg" alt="weather app intro"></img>

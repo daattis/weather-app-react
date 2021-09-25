@@ -5,18 +5,22 @@ import WeatherPage from "./WeatherPage";
 import Footer from "./Footer";
 
 function App() {
-  const [inputText, setInputText] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
   const [city, updateCity] = useState();
   const [weather, updateWeather] = useState();
+  const [showWeather, updateShowWeather] = useState(false);
 
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + encodeURIComponent(city) + "&appid=c3fb8a5ed9dfef15a7c6b70a013faf95&units=metric";
 
   const handleChange = (event) => {
     let newCity = event.target.value;
     updateCity(newCity);
+  };
+  const onClick = () => {
+    console.log("Clicked");
+    updateShowWeather(false);
   };
 
   //fetch data from api
@@ -29,12 +33,13 @@ function App() {
         (result) => {
           setIsLoaded(true);
           updateWeather(result);
+          updateShowWeather(true);
           console.log(result);
         },
         (error) => {
           setIsLoaded(true);
           setError(error);
-          console.log("Error in fetch");
+          console.log("Error in fetch:");
         }
       );
 
@@ -45,7 +50,7 @@ function App() {
   return (
     <div>
       <h1 className="header">My weather app</h1>
-      {city && weather ? <WeatherPage weather={weather} city={city} /> : <SearchPage onSearch={onSearch} handleChange={handleChange} />}
+      {showWeather ? <WeatherPage weather={weather} city={city} onClick={onClick} /> : <SearchPage onSearch={onSearch} handleChange={handleChange} />}
       <Footer />
     </div>
   );
