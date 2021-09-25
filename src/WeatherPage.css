@@ -1,0 +1,41 @@
+.city-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h2 {
+  font-weight: lighter;
+  font-size: 3rem;
+  color: rgb(93, 93, 93);
+}
+.temperature {
+  font-size: 3rem;
+  font-weight: lighter;
+}
+.temperature-container {
+  display: flex;
+}
+.map-icon {
+  margin: 5px 5px 8px 5px;
+  color: rgb(93, 93, 93);
+}
+.flex-item {
+  justify-content: center;
+  margin: 20px;
+}
+.temperature-flex-item {
+  justify-content: center;
+  margin: 0 15px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.weather-image {
+  width: 25%;
+}
+.details-icon {
+  margin: 5px 5px 8px 5px;
+  color: rgb(93, 93, 93);
+}

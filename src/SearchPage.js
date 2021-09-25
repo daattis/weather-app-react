@@ -1,24 +1,24 @@
-import React from 'react';
-import './SearchPage.css'
+import React from "react";
+import "./SearchPage.css";
 
-const SearchPage = ({ onSearch, handleChange, inputText }) => {
+const SearchPage = ({ onSearch, handleChange, city }) => {
+  return (
+    <div className="container">
+      <img className="search-img flex-item" src="./icons/perfect-day.svg" alt="weather app intro"></img>
+      <h3 className="search-title flex-item">Find Weather for your city</h3>
 
-    return (
-    <div>
-      <img className="search-img" src="./icons/perfect-day.svg" alt="weather app intro"></img>
-      <h2 className="search-title">Find Weather for your city</h2>
-
-      <form onSubmit={onSearch}>
-      <div className="input-group mb-3">
-        <input onChange={handleChange} type="text" value={inputText} className="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2"></input>
-        <div className="input-group-append">
-          <button className="btn btn-dark" type="submit">Search</button>
+      <form className="flex-item" onSubmit={onSearch}>
+        <div className="input-group">
+          <input onChange={handleChange} type="text" className="form-control" placeholder="City" aria-label="City" aria-describedby="basic-addon2"></input>
+          <div className="input-group-append">
+            <button className="btn btn-dark" type="submit">
+              Search
+            </button>
+          </div>
         </div>
-      </div>
       </form>
-</div>
-    
-)
-}
+    </div>
+  );
+};
 
 export default SearchPage;
